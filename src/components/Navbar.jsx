@@ -150,7 +150,7 @@ const Navbar = () => {
                 Shri Shankaracharya
               </motion.span>
               <motion.span 
-                className="font-['Inter'] font-semibold text-orange-600 text-xs lg:text-lg leading-tight"
+                className="font-['Inter'] font-semibold text-orange-600 text-xs lg:text-md leading-tight"
                 whileHover={{ color: "#dc2626" }}
               >
                 Swaroopanand Foundation
@@ -171,10 +171,10 @@ const Navbar = () => {
             >
               <Link
                 to={item.path}
-                className={`relative px-5 py-2.5 font-['Inter'] font-medium transition-all duration-300 rounded-2xl mx-1 group ${
+                className={`relative px-3 py-2.5 font-['Inter'] font-medium transition-all duration-300 rounded-2xl mx-1 group ${
                   activeSection === item.id
                     ? "text-orange-600 bg-orange-50 shadow-inner shadow-orange-200/50"
-                    : "text-gray-600 hover:text-orange-600 hover:bg-gray-50/80"
+                    : "text-gray-900 hover:text-orange-600 hover:bg-gray-50/80"
                 }`}
               >
                 <span className="relative z-10">{item.label}</span>
@@ -212,7 +212,7 @@ const Navbar = () => {
           {/* PDF Download Button */}
           <motion.button
             onClick={handlePdfDownload}
-            className="px-5 py-2.5 font-['Inter'] font-medium text-gray-700 hover:text-orange-600 transition-colors duration-300 rounded-2xl hover:bg-gray-50/80 flex items-center space-x-2"
+            className="px-5 py-2.5 font-['Inter'] font-medium text-gray-900 hover:text-orange-600 transition-colors duration-300 rounded-2xl hover:bg-gray-50/80 flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

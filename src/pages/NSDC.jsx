@@ -36,27 +36,12 @@ import {
 } from 'lucide-react';
 
 const NSDC = () => {
-  const [activeTab, setActiveTab] = useState('drones');
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
 
-  const droneCourses = [
+  const courses = [
     {
       id: 1,
-      title: "Drone Pilot Training",
-      duration: "3 Months",
-      level: "Beginner to Advanced",
-      skills: ["Flight Operations", "Aerial Photography", "Mapping & Surveying", "Safety Protocols"],
-      icon: <Drone className="w-12 h-12" />,
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "bg-blue-50",
-      borderColor: "border-blue-200",
-      students: 250,
-      rating: 4.8,
-      nsdcCode: "ELE/Q7301"
-    },
-    {
-      id: 2,
       title: "Drone Manufacturing and Assembly Technician",
       duration: "6 Months",
       level: "Intermediate",
@@ -67,27 +52,11 @@ const NSDC = () => {
       borderColor: "border-green-200",
       students: 180,
       rating: 4.7,
-      nsdcCode: "ELE/Q7307"
+      nsdcCode: "ELE/Q7307",
+      technology: "Drone Technology"
     },
     {
-      id: 3,
-      title: "Agricultural Drone Applications",
-      duration: "4 Months",
-      level: "Beginner",
-      skills: ["Crop Monitoring", "Spraying Techniques", "Data Analysis", "Precision Farming"],
-      icon: <Globe className="w-12 h-12" />,
-      color: "from-amber-500 to-orange-500",
-      bgColor: "bg-amber-50",
-      borderColor: "border-amber-200",
-      students: 320,
-      rating: 4.9,
-      nsdcCode: "AGR/Q7302"
-    }
-  ];
-
-  const aiCourses = [
-    {
-      id: 1,
+      id: 2,
       title: "AI - Machine Learning Engineer",
       duration: "6 Months",
       level: "Advanced",
@@ -98,35 +67,8 @@ const NSDC = () => {
       borderColor: "border-purple-200",
       students: 450,
       rating: 4.8,
-      nsdcCode: "SSC/Q8113"
-    },
-    {
-      id: 2,
-      title: "Computer Vision & Drones",
-      duration: "5 Months",
-      level: "Intermediate",
-      skills: ["Image Processing", "Object Detection", "Neural Networks", "Real-time Analysis"],
-      icon: <Eye className="w-12 h-12" />,
-      color: "from-indigo-500 to-blue-500",
-      bgColor: "bg-indigo-50",
-      borderColor: "border-indigo-200",
-      students: 290,
-      rating: 4.6,
-      nsdcCode: "SSC/Q8115"
-    },
-    {
-      id: 3,
-      title: "AI for Social Development",
-      duration: "4 Months",
-      level: "Beginner",
-      skills: ["Social Impact Analysis", "Predictive Modeling", "Community Solutions", "Project Management"],
-      icon: <HeartHandshake className="w-12 h-12" />,
-      color: "from-rose-500 to-red-500",
-      bgColor: "bg-rose-50",
-      borderColor: "border-rose-200",
-      students: 210,
-      rating: 4.7,
-      nsdcCode: "SSC/Q8118"
+      nsdcCode: "SSC/Q8113",
+      technology: "Artificial Intelligence"
     }
   ];
 
@@ -153,7 +95,6 @@ const NSDC = () => {
     }
   ];
 
-  // ... (successStories, features, stats remain the same)
   const successStories = [
     {
       name: "Rahul Sharma",
@@ -267,7 +208,7 @@ const NSDC = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white py-16 md:py-24 overflow-hidden"
+        className="relative bg-gradient-to-br from-green-600 via-blue-600 to-purple-700 text-white py-16 md:py-24 overflow-hidden"
       >
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute top-10 right-10 opacity-20">
@@ -445,9 +386,9 @@ const NSDC = () => {
         </div>
       </motion.section>
 
-      {/* Technology Tabs */}
+      {/* Programs Section - Direct Display without Tabs */}
       <section className="py-16 md:py-20 container mx-auto bg-gradient-to-br from-gray-50 to-blue-50/50">
-        <div className=" px-4">
+        <div className="px-4">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -459,129 +400,98 @@ const NSDC = () => {
               Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Programs</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-              Choose from our specialized courses in emerging technologies, designed for future-ready careers
+              Specialized NSDC certified courses designed for future-ready careers
             </p>
           </motion.div>
 
-          {/* Tab Buttons */}
-          <motion.div 
+          {/* Courses Grid */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12 md:mb-16"
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto"
           >
-            <button
-              onClick={() => setActiveTab('drones')}
-              className={`px-4 py-4 rounded-xl text-base md:text-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-3 ${
-                activeTab === 'drones'
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-200 transform -translate-y-1'
-                  : 'bg-white text-gray-700 shadow-lg hover:shadow-xl border border-gray-200'
-              }`}
-            >
-              <Drone className="w-5 h-5 md:w-6 md:h-6" />
-              <span>Drone Technology</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('ai')}
-              className={`px-4 py-4 rounded-xl text-base md:text-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-3 ${
-                activeTab === 'ai'
-                  ? 'bg-purple-600 text-white shadow-lg shadow-purple-200 transform -translate-y-1'
-                  : 'bg-white text-gray-700 shadow-lg hover:shadow-xl border border-gray-200'
-              }`}
-            >
-              <Brain className="w-5 h-5 md:w-6 md:h-6" />
-              <span>Artificial Intelligence</span>
-            </button>
-          </motion.div>
-
-          {/* Courses Grid */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-            >
-              {(activeTab === 'drones' ? droneCourses : aiCourses).map((course, index) => (
-                <motion.div
-                  key={course.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ 
-                    y: -8,
-                    transition: { duration: 0.3 }
-                  }}
-                  className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
-                >
-                  <div className={`h-2 bg-gradient-to-r ${course.color}`}></div>
-                  <div className="p-4 md:p-6">
-                    <div className={`inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-2xl ${course.bgColor} ${course.borderColor} border mb-4 text-gray-700`}>
+            {courses.map((course, index) => (
+              <motion.div
+                key={course.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ 
+                  y: -8,
+                  transition: { duration: 0.3 }
+                }}
+                className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
+              >
+                <div className={`h-2 bg-gradient-to-r ${course.color}`}></div>
+                <div className="p-4 md:p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className={`inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-2xl ${course.bgColor} ${course.borderColor} border text-gray-700`}>
                       {course.icon}
                     </div>
-                    
-                    <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-3">
-                      {course.title}
-                    </h3>
-
-                    {/* NSDC Code */}
-                    <div className="mb-3">
-                      <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-md text-xs font-medium">
-                        NSDC: {course.nsdcCode}
-                      </span>
+                    <div className="bg-blue-100 text-blue-700 px-2 py-1 rounded-md text-xs font-medium">
+                      {course.technology}
                     </div>
-                    
-                    <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
-                      <div className="flex items-center space-x-2">
-                        <Clock className="w-4 h-4" />
-                        <span>{course.duration}</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <BarChart3 className="w-4 h-4" />
-                        <span>{course.level}</span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-2">
-                        <User className="w-4 h-4 text-gray-400" />
-                        <span className="text-sm text-gray-600">{course.students}+ students</span>
-                      </div>
-                      <StarRating rating={course.rating} />
-                    </div>
-                    
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-gray-700 mb-3 flex items-center space-x-2">
-                        <BookOpen className="w-4 h-4" />
-                        <span className="text-sm md:text-base">Skills You'll Learn:</span>
-                      </h4>
-                      <ul className="space-y-2">
-                        {course.skills.map((skill, skillIndex) => (
-                          <li key={skillIndex} className="flex items-center text-gray-600 text-xs md:text-sm">
-                            <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-500 mr-2 flex-shrink-0" />
-                            {skill}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => setSelectedCourse(course)}
-                      className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 text-sm md:text-base"
-                    >
-                      <span>Learn More</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </motion.button>
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+                  
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-3">
+                    {course.title}
+                  </h3>
+
+                  {/* NSDC Code */}
+                  <div className="mb-3">
+                    <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-md text-xs font-medium">
+                      NSDC: {course.nsdcCode}
+                    </span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+                    <div className="flex items-center space-x-2">
+                      <Clock className="w-4 h-4" />
+                      <span>{course.duration}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <BarChart3 className="w-4 h-4" />
+                      <span>{course.level}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-2">
+                      <User className="w-4 h-4 text-gray-400" />
+                      <span className="text-sm text-gray-600">{course.students}+ students</span>
+                    </div>
+                    <StarRating rating={course.rating} />
+                  </div>
+                  
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-gray-700 mb-3 flex items-center space-x-2">
+                      <BookOpen className="w-4 h-4" />
+                      <span className="text-sm md:text-base">Skills You'll Learn:</span>
+                    </h4>
+                    <ul className="space-y-2">
+                      {course.skills.map((skill, skillIndex) => (
+                        <li key={skillIndex} className="flex items-center text-gray-600 text-xs md:text-sm">
+                          <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-500 mr-2 flex-shrink-0" />
+                          {skill}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setSelectedCourse(course)}
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 text-sm md:text-base"
+                  >
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </motion.button>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -940,7 +850,3 @@ const NSDC = () => {
 };
 
 export default NSDC;
-
-
-
-
