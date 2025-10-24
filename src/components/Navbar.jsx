@@ -132,16 +132,13 @@ const Navbar = () => {
           >
             <div className="relative">
               <motion.img 
-                className="w-12 h-12 lg:w-14 lg:h-14"
-                src="/logo/sssf.png"
+                className="w-12 h-12 lg:w-16 lg:h-16"
+                src="/logo/ssssf.png"
                 alt="Foundation Logo"
                 whileHover={{ rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               />
-              <motion.div 
-                className="absolute inset-0 rounded-xl border-2 border-orange-500/30 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              />
+              
             </div>
             <div className="flex flex-col">
               <motion.span 
