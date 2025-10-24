@@ -100,16 +100,17 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { path: "/", label: "Home", id: "home" },
-    { path: "/about", label: "About", id: "about" },
-    { path: "/services", label: "Services", id: "services" },
+    { path: "/", label: "HOME", id: "home" },
+    { path: "/about", label: "ABOUT", id: "about" },
+    { path: "/services", label: "SERVICES", id: "services" },
     { path: "/nsdc", label: "NSDC", id: "nsdc" },
-    { path: "/contact", label: "Contact", id: "contact" }
+    { path: "/contact", label: "CONTACT", id: "contact" }
   ];
+  
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 h-20 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 h-20  ${
         isScrolled 
           ? "bg-white/90 backdrop-blur-2xl shadow-2xl shadow-gray-200/50 border-b border-gray-100" 
           : "bg-white/80 backdrop-blur-xl shadow-sm"
@@ -117,6 +118,7 @@ const Navbar = () => {
       initial="hidden"
       animate="visible"
       variants={navVariants}
+      style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3 lg:px-8 lg:py-4 h-full">
         {/* Logo */}
@@ -142,13 +144,13 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col">
               <motion.span 
-                className="font-['Poppins'] font-bold text-gray-800 text-sm lg:text-base leading-tight"
+                className="font-['Inter'] font-bold text-gray-800 text-sm lg:text-lg leading-tight"
                 whileHover={{ color: "#ea580c" }}
               >
                 Shri Shankaracharya
               </motion.span>
               <motion.span 
-                className="font-['Poppins'] font-semibold text-orange-600 text-xs lg:text-sm leading-tight"
+                className="font-['Inter'] font-semibold text-orange-600 text-xs lg:text-lg leading-tight"
                 whileHover={{ color: "#dc2626" }}
               >
                 Swaroopanand Foundation
